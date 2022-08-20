@@ -1,0 +1,183 @@
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+         <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+       <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="../index.html">Anti-Ambush</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../index.html">Main Insights Summary</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Insights</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../static/pages/cards.html">Input Data Insights<span class="badge badge-secondary">Output</span></a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../static/pages/cards.html">ML Anomaly Detection Insights<span class="badge badge-secondary">Output</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Alerts</a>
+                                <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../static/pages/chart-c3.html">Twilio Anomaly Alerts</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Statistic Data</a>
+                                <div id="submenu-5" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../static/pages/general-table.html">Tables and Mathematical Inferences</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+
+		
+
+		<div class="container-contact100">
+			<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+		
+			<div class="wrap-contact100">
+			  <form class="contact100-form validate-form" action="/TwilioForm" method="post">
+				<span class="contact100-form-title">
+				  Notify your mentor/mentee for a meetup
+				</span>
+		
+				<div class="wrap-input100 validate-input" data-validate="#">
+				  <input class="input100" type="text" name="sid" placeholder=" Twilio SID" id="sid">
+				  <span class="focus-input100"></span>
+				</div>
+				
+	  
+				<div class="wrap-input100 validate-input" data-validate="#">
+				  <input class="input100" type="text" name="token" placeholder="Twilio Token" id="token">
+				  <span class="focus-input100"></span>
+				</div>
+	  
+				<div class="wrap-input100 validate-input" data-validate="#">
+				  <input class="input100" type="text" name="wpfrom" placeholder=" Whatsapp No From." id="wpfrom">
+				  <span class="focus-input100"></span>
+				</div>
+	  
+				<div class="wrap-input100 validate-input" data-validate="#">
+				  <input class="input100" type="text" name="wpto" placeholder="Whatsapp No To." id="wpto">
+				  <span class="focus-input100"></span>
+				</div>
+		
+			  
+				<div class="wrap-input100 validate-input" data-validate = "Enter your Message">
+				  <textarea class="input100" name="msg" placeholder="Enter Msg" id="msg"></textarea>
+				  <span class="focus-input100"></span>
+				</div>
+		
+				<div class="container-contact100-form-btn">
+				  <button onclick="myFunction()" class="contact100-form-btn">
+					Send Message
+				  </button>
+				</div>
+			  </form>
+		
+			</div>
+		  </div>
+		
+		
+	
+	
+
+
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                             Copyright © 2022 Anti-Ambush. Geetanjali and Ishita</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="../static/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../static/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="../static/assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="../static/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="../static/assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="../static/assets/libs/js/main-js.js"></script>
+</body>
+ 
+</html>
