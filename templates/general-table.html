@@ -1,18 +1,16 @@
 <!doctype html>
 <html lang="en">
-
  
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tables and Statistical Insights</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
-    <title>Data Insights</title>
+    <link rel="stylesheet" href="../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../static/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/assets/libs/css/style.css">
+    <link rel="stylesheet" href="../static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
 </head>
 
 <body>
@@ -75,15 +73,15 @@
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dataInsights.html">Input Data Insights<span class="badge badge-secondary">Output</span></a>
+                                            <a class="nav-link" href="/static/pages/dataInsights.html">Input Data Insights<span class="badge badge-secondary">Output1</span></a>
                                         </li>
-
                                         <li class="nav-item">
-                                            <a class="nav-link" href="MLInsights.html">ML Anomaly Detection Insights<span class="badge badge-secondary">Output</span></a>
+                                            <a class="nav-link" href="/static/pages/MLInsights.html">ML Anomaly Detection Insights<span class="badge badge-secondary">Output2</span></a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Alerts</a>
                                 <div id="submenu-3" class="collapse submenu" style="">
@@ -110,8 +108,8 @@
                     </div>
                 </nav>
             </div>
-        </div>
-        <!-- ============================================================== -->
+        </div>       
+         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
@@ -125,13 +123,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Data Insights </h2>
+                            <h2 class="pageheader-title">General Tables </h2>
+                
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Insights</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Data Insights</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tables</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">General Tables</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -141,134 +140,47 @@
                 <!-- ============================================================== -->
                 <!-- end pageheader -->
                 <!-- ============================================================== -->
+               
                 <div class="row">
                     <!-- ============================================================== -->
-                    <!--  area chart  -->
+                    <!-- basic table -->
                     <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <h5 class="card-header">Top 10 Most Occuring IP</h5>
-                        <div class="card">
-                                <img src="/mostIP.png" >
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!--  end area chart  -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!--  spline chart  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Anomaly Spline Chart</h5>
+                 
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                        {% for table in tables %}
+                    
+                            <center>                               
                             <div class="card-body">
-                                <div id="c3chart_spline"></div>
+                                <div class="table table-striped">
+                                <h2>{{titles[loop.index]}}</h2>
+                                {{ table|safe }} 
+                                </div>
+                                
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end  spline chart  -->
-                <!-- ============================================================== -->
-                <div class="row">
-    
-                    <!-- ============================================================== -->
-                    <!--  scatter chart  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Data Points Initial Scatter Plot</h5>
-                            <div class="card-body">
-                                <div id="c3chart_scatter"></div>
+                        </center> 
+                        <h5 class="card-header">
+                            <div class="card-footer text-center">
+                                <a href="#" class="btn-primary-link">View Details</a>
                             </div>
-                        </div>
-                    </div>
 
-                     <!-- ============================================================== -->
-                    <!--  zoom chart  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <h5 class="card-header">Top 10 IPs with Highest Daily Counts</h5>
-                        <div class="card">
-                                <img src="/dailyIP.png" >
-                        </div>
+                        </h5>
+                        <hr>
+                            
+                  
+                        {% endfor %}
                     </div>
+        
                     <!-- ============================================================== -->
-                    <!--  end zoom chart  -->
-                    <!-- ============================================================== -->
-                </div>
-                <!-- ============================================================== -->
-                <!--  end scatter chart  -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <!-- ============================================================== -->
-                    <!--  stacked chart  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <h5 class="card-header">Weekend Ratio of Top 10 IPs</h5>
-                        <div class="card">
-                                <img src="/weekendIP.png">
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!--  end stacked chart  -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!--  combination chart  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Data point category Combination Chart </h5>
-                            <div class="card-body">
-                                <div id="c3chart_combine"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!--  end combination chart  -->
-                    <!-- ============================================================== -->
-                </div>
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Sample Zoom Chart </h5>
-                            <div class="card-body">
-                                <div id="c3chart_zoom"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!--  end combination chart  -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- pie chart  -->
-                    <!-- ============================================================== -->
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <h5 class="card-header">Average Login time of Top 10 IPs</h5>
-                        <div class="card">
-                                <img src="/timeIP.png">
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end pie chart  -->
-                    <!-- ============================================================== -->
+                    <!-- end basic table -->
 
-                </div>
-            </div>
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
             <div class="footer">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                             Copyright © 2022 Going Phishing. Geetanjali and Ishita</a>.
                         </div>
                     </div>
                 </div>
@@ -282,13 +194,11 @@
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="../assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="../assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="../assets/libs/js/main-js.js"></script>
+    <script src="../static/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../static/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="../static/assets/vendor/custom-js/jquery.multi-select.html"></script>
+    <script src="../static/assets/libs/js/main-js.js"></script>
 </body>
  
 </html>
