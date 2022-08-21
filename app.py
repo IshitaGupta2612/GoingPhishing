@@ -56,12 +56,39 @@ avg_timedelta_data = data.groupby(ip_col).agg({'time_diff':['mean','max']}).rese
 avg_timedelta_data.columns = avg_timedelta_data.columns.droplevel()
 avg_timedelta_data.columns = [ip_col, 'td_mean', 'td_max']
 
+merge_1 = ip_counts.merge(daily_counts_agg, on=ip_col, how='left')
+merge_2 = merge_1.merge(lean_weekend_counts_agg, on=ip_col, how='left')
+final_data = merge_2.merge(avg_timedelta_data, on=ip_col, how='left')
+df=final_data.head(10)
+
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello_world():
-	return render_template('index.html')
+    maxOccuringIP=ip_counts['ip_address'].loc[ip_counts['total_count']==ip_counts['total_count'].max()]
+    maxOccuringIP=np.array(maxOccuringIP)
+    maxOccuringIP=maxOccuringIP[0]
+
+    highestDailyCount=daily_counts_agg['ip_address'].loc[daily_counts_agg['daily_counts']==daily_counts_agg['daily_counts'].max()]
+    highestDailyCount=np.array(highestDailyCount)
+    highestDailyCount=highestDailyCount[0]
+
+    ipHighestWeekendRatio=lean_weekend_counts_agg['ip_address'].loc[lean_weekend_counts_agg['is_weekend_ratio']==lean_weekend_counts_agg['is_weekend_ratio'].max()]
+    ipHighestWeekendRatio=np.array(ipHighestWeekendRatio)
+    ipHighestWeekendRatio=ipHighestWeekendRatio[0]
+
+    higestAvgLoginTime=avg_timedelta_data['ip_address'].loc[avg_timedelta_data['td_mean']==avg_timedelta_data['td_mean'].max()]
+    higestAvgLoginTime=np.array(higestAvgLoginTime)
+    higestAvgLoginTime=higestAvgLoginTime[0]
+
+    
+
+
+
+    return render_template('index.html', maxOccuringIP=maxOccuringIP,highestDailyCount=highestDailyCount,ipHighestWeekendRatio=ipHighestWeekendRatio,higestAvgLoginTime=higestAvgLoginTime, tables=[df.to_html(classes='data')], titles=df.columns.values)
+
+
 
 @app.route('/mostIP.png')
 def plot_png():
